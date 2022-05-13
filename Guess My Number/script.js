@@ -28,7 +28,7 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('.number').style.width = '30rem';
             document.querySelector('.number').textContent = number;
             if (score > highscore) {
-                score = highscore;
+                highscore = score;
                 document.querySelector('.highscore').textContent = highscore;
             }
 
