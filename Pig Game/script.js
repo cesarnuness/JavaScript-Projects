@@ -17,7 +17,6 @@ dice.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
-
 const resetGame = function () {
     score0.textContent = 0;
     score1.textContent = 0;
@@ -26,7 +25,6 @@ const resetGame = function () {
 newGame.addEventListener('click', function () {
     resetGame();
 });
-
 const swapPlayers = function () {
     if (player1.classList.contains = 'player--active') {
         player1.classList.remove = 'player--active';
@@ -34,39 +32,46 @@ const swapPlayers = function () {
     } else {
         player2.classList.remove = 'player--active';
         player1.classList.add = 'player--active';
-
     }
 }
-
 rollDice.addEventListener('click', function () {
-        const diceRoll = Math.trunc(Math.random() * 6) + 1;
-        dice.classList.remove('hidden');
-        dice.src = `dice-${diceRoll}.png`
-        console.log(diceRoll);
+    const diceRoll = Math.trunc(Math.random() * 6) + 1;
+    dice.classList.remove('hidden');
+    dice.src = `dice-${diceRoll}.png`
+    console.log(diceRoll);
 
-        //Implementing rule of 1; if true switch player else add to the current score 
-        if (diceRoll !== 1) {
-            currentScore += diceRoll;
-            document.getElementById(`current--${activePlayer}`).textContent = currentScore;
-        } else {
-            document.getElementById(`current--${activePlayer}`).textContent = 0;
-            currentScore = 0;
-            activePlayer = activePlayer === 0 ? 1 : 0;
-            // if (activePlayer !== 0) {
-            //     player2.classList.add('player--active');
-            //     player1.classList.remove('player--active');
-            // } else {
-            //     player1.classList.add('player--active');
-            //     player2.classList.remove('player--active');
+    //Implementing rule of 1; if true switch player else add to the current score 
+    if (diceRoll !== 1) {
+        currentScore += diceRoll;
+        document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    } else {
+        document.getElementById(`current--${activePlayer}`).textContent = 0;
+        currentScore = 0;
+        activePlayer = activePlayer === 0 ? 1 : 0;
+        player1.classList.toggle('player--active');
+        player2.classList.toggle('player--active');
+    };
+});
 
-            player1.classList.toggle('player--active');
-            player2.classList.toggle('player--active');
+holdScore.addEventListener('click', function () {
+    //Add score to the current score of the active player!
+    scores[activePlayer] += currentScore;
 
-        };
-    }
+});
 
 
-);
+
+
+
+
+// if (activePlayer !== 0) {
+//     player2.classList.add('player--active');
+//     player1.classList.remove('player--active');
+// } else {
+//     player1.classList.add('player--active');
+//     player2.classList.remove('player--active');
+
+
 // score0.textContent = number;
 // dice.classList.remove('hidden');
 // if (number === 1) {
