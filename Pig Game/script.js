@@ -11,52 +11,73 @@ const player1 = document.querySelector('.player--0');
 const player2 = document.querySelector('.player--1');
 
 //Starting conditions
-score0.textContent = 0;
-score1.textContent = 0;
-dice.classList.add('hidden');
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
+let currentScore, activePlayer, playing, scores;
+
+
 const resetGame = function () {
     score0.textContent = 0;
     score1.textContent = 0;
     dice.classList.add('hidden');
+    playing = true;
+    scores = [0, 0];
+    player1.classList.remove('player--winner');
+    player2.classList.remove('player--winner')
+    player1.classList.add('player--active');
+    player2.classList.remove('player--active');
+    score0.textContent = 0;
+    score1.textContent = 0;
+    dice.classList.add('hidden');
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
+
 }
-newGame.addEventListener('click', function () {
-    resetGame();
-});
+
+resetGame();
+
+newGame.addEventListener('click', resetGame);
+
 const swapPlayers = function () {
-    if (player1.classList.contains = 'player--active') {
-        player1.classList.remove = 'player--active';
-        player2.classList.add = 'player--active';
-    } else {
-        player2.classList.remove = 'player--active';
-        player1.classList.add = 'player--active';
-    }
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player1.classList.toggle('player--active');
+    player2.classList.toggle('player--active');
 }
 rollDice.addEventListener('click', function () {
-    const diceRoll = Math.trunc(Math.random() * 6) + 1;
-    dice.classList.remove('hidden');
-    dice.src = `dice-${diceRoll}.png`
-    console.log(diceRoll);
+    if (playing) {
+        const diceRoll = Math.trunc(Math.random() * 6) + 1;
+        dice.classList.remove('hidden');
+        dice.src = `dice-${diceRoll}.png`
+        console.log(diceRoll);
 
-    //Implementing rule of 1; if true switch player else add to the current score 
-    if (diceRoll !== 1) {
-        currentScore += diceRoll;
-        document.getElementById(`current--${activePlayer}`).textContent = currentScore;
-    } else {
-        document.getElementById(`current--${activePlayer}`).textContent = 0;
-        currentScore = 0;
-        activePlayer = activePlayer === 0 ? 1 : 0;
-        player1.classList.toggle('player--active');
-        player2.classList.toggle('player--active');
-    };
+        //Implementing rule of 1; if true switch player else add to the current score 
+        if (diceRoll !== 1) {
+            currentScore += diceRoll;
+            document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+        } else {
+            swapPlayers();
+        };
+    }
 });
 
 holdScore.addEventListener('click', function () {
     //Add score to the current score of the active player!
-    scores[activePlayer] += currentScore;
+    if (playing) {
+        scores[activePlayer] += currentScore;
+        document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
+        //Check if It's higher than 100
+        if (scores[activePlayer] >= 100) {
+            playing = false;
+            dice.classList.add('hidden');
+            document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+            document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
 
+        } else {
+            swapPlayers();
+        }
+    }
+    // Finish the Game!
 });
 
 
