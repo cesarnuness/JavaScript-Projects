@@ -9,4 +9,4 @@ I will log my jorney in this repository while learning JavaScript; I already lea
 
 3-Modal (Manipulating Classes, Keyboard and click events)
 
-4-Pig Game
+4-Pig Game (All the previous ones!)
