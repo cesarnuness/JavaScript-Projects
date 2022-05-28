@@ -12,11 +12,11 @@ const player2 = document.querySelector('.player--1');
 const nome0 = document.querySelector('#name--0');
 const nome1 = document.querySelector('#name--1');
 
-// const nomeJogador1 = prompt('Qual o nome do jogador 1?')
-// nome0.textContent = nomeJogador1;
+const nomeJogador1 = prompt('Qual o nome do jogador 1?')
+nome0.textContent = nomeJogador1;
 
-// const nomeJogador2 = prompt('Qual o nome do jogador 2?')
-// nome1.textContent = nomeJogador2;
+const nomeJogador2 = prompt('Qual o nome do jogador 2?')
+nome1.textContent = nomeJogador2;
 
 //Starting conditions
 let currentScore, activePlayer, playing, scores;
