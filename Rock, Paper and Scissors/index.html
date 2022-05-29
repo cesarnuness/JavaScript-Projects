@@ -2,26 +2,47 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper and Scissors</title>
 
-    <Style>
-        body {
-            height: 50%;
-            background-color: brown;
-            padding-left: auto;
-            padding-top: 20%;
-
-        }
-    </Style>
 </head>
 
 <body>
-    <h1 style="font-size: 60px; text-align: center;">The Rock, Paper and Scissor's game - Check Console to Play</h1>
+    <div class="container">
+        <section class="navbar">
+            <div class="logo">
+                <img class="logo-img" src="rps-game.png" alt="game">
+            </div>
+            <ul class="horizontal-list">
+                <li>About Me</li>
+                <li><a href="https://github.com/cesarnuness">GitHub</a> </li>
+                <li> <a href="https://cesarnuness.github.io/portifolio/">Portfolio</a> </li>
+            </ul>
+        </section>
+        <section class="middle">
+            <h1 class="title">The Rock, Paper and Scissor's game </h1>
+            <h2 class="make-a-play"> Choose your Play</h2>
+            <div class="img-section">
+                <input type="image" class="play play1 button" src="play1.png" alt="paper" />
+                <input type="image" class="play play2 button" src="play2.png" alt="rock" />
+                <input type="image" class="play play3 button" src="play3.png" alt="scissor" />
+            </div>
+            <div class="enemyplay">
+                <h2 class="make-a-play"> My play will be</h2>
+                <input type="image" class="play play4" src="play3.png" />
 
+            </div>
+        </section>
+        <section class="footer">
+        </section>
+    </div>
     <script src="script.js"></script>
 </body>
+<section class="footer">
+    <hr>
+</section>
 
 </html>

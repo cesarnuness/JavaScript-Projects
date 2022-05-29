@@ -1,0 +1,79 @@
+body {
+    background-color: brown;
+    padding-left: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li {
+    display: inline;
+    margin: 0px 20px 0px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-img {
+    height: 50px;
+    margin: 10px 20px 0px 20px;
+
+}
+
+.play {
+    max-width: 15%;
+    margin: 0 20px 0 20px;
+}
+
+.middle {
+    align-items: center;
+}
+
+.img-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.make-a-play {
+    text-align: center;
+}
+
+.clicked {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+.movered {
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem white;
+}
+
+.enemyplay {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.play4 {
+    margin-top: 25px;
+    margin-bottom: 100px;
+    object-fit: inherit;
+}
