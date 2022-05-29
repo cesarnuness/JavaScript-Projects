@@ -10,3 +10,13 @@ I will log my jorney in this repository while learning JavaScript; I already lea
 3-Modal (Manipulating Classes, Keyboard and click events)
 
 4-Pig Game (All the previous ones!)
+
+5-JavaScript Drum Kit
+
+6-JS and CSS Clock
+
+7-Event Capture, Propagation and Bubling
+
+8-Revamped Rock, Paper and Scissors
+
+9-Etch-A-Sketch
