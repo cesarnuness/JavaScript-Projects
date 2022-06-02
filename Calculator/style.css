@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+
+.btn {
+    padding: 15px 25px 15px 25px;
+    cursor: pointer;
+}
+
+.container {
+    width: 300px;
+    background-color: darkgrey;
+    border-radius: 10px;
+    height: 340px;
+}
+
+.main {
+    padding: 0 5px 20px 5px;
+
+}
+
+.last-display {
+    padding: 10px 10px 0 15px;
+    text-align: right;
+    background-color: aliceblue;
+}
+
+.current-display {
+    padding: 10px 10px 0 15px;
+    text-align: right;
+    background-color: aliceblue;
+
+
+}
+
+.all-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-buttons {
+    padding: 2px 0px 2px 0px;
+}
+
+.delete {
+    padding-right: 52px;
+    padding-left: 52px;
+}
+
+.clear {
+    padding-right: 52px;
+    padding-left: 52px;
+}
+
+.bottom-buttons {
+    display: flex;
+}
+
+.equal {
+    padding: 15px 40px 15px 40px;
+}
+
+.add {
+    margin-left: 0px;
+    padding-left: 40px;
+    padding-right: 45px;
+}
+
+.subtract {
+    padding-right: 44px;
+    padding-left: 44px;
+}
+
+.multiply {
+    padding-right: 43px;
+    padding-left: 43px;
+}
