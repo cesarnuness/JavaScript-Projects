@@ -1,90 +1,118 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    align-items: center;
-    justify-content: center;
-    padding-top: 100px;
-    margin-left: 35%;
-    margin-right: 35%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 
-
 .btn {
-    padding: 15px 25px 15px 25px;
-    cursor: pointer;
+  padding: 15px 25px 15px 25px;
+  cursor: pointer;
 }
 
 .container {
-    width: 300px;
-    background-color: darkgrey;
-    border-radius: 10px;
-    height: 340px;
+  width: 300px;
+  background-color: darkgrey;
+  border-radius: 10px;
+  height: 340px;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
 .main {
-    padding: 0 5px 20px 5px;
-
+  padding: 0 5px 20px 5px;
 }
 
-.last-display {
-    padding: 10px 10px 0 15px;
-    text-align: right;
-    background-color: aliceblue;
-}
-
-.current-display {
-    padding: 10px 10px 0 15px;
-    text-align: right;
-    background-color: aliceblue;
-
-
+.display {
+  padding: 30px;
+  text-align: right;
+  background-color: aliceblue;
+  height: 10%;
+  border: 20px 0;
 }
 
 .all-buttons {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .top-buttons {
-    padding: 2px 0px 2px 0px;
+  padding: 2px 0px 2px 0px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
 .delete {
-    padding-right: 52px;
-    padding-left: 52px;
+  padding-right: 52px;
+  padding-left: 52px;
 }
 
 .clear {
-    padding-right: 52px;
-    padding-left: 52px;
+  padding-right: 52px;
+  padding-left: 52px;
 }
 
 .bottom-buttons {
-    display: flex;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
-.equal {
-    padding: 15px 40px 15px 40px;
+.zero {
+  padding: 15px 58px 15px 57px;
 }
 
 .add {
-    margin-left: 0px;
-    padding-left: 40px;
-    padding-right: 45px;
+  margin-left: 0px;
+  padding-left: 40px;
+  padding-right: 45px;
 }
 
 .subtract {
-    padding-right: 44px;
-    padding-left: 44px;
+  padding-right: 44px;
+  padding-left: 44px;
 }
 
 .multiply {
-    padding-right: 43px;
-    padding-left: 43px;
+  padding-right: 43px;
+  padding-left: 43px;
+}
+
+.display {
+  height: 20px;
+}
+
+.data-operator {
+  width: 100%;
+  border: 0;
+  outline-style: solid;
+  outline-color: #7d9d9c;
+  outline: 1px;
+  margin: 0;
+}
+
+.data-number {
+  width: 31%;
+  margin: 0;
+  border: 0;
+  outline: 1px;
+  outline-style: solid;
+  outline-color: #7d9d9c;
+}
+
+.data-equal {
+  width: 43%;
+  outline-style: solid;
+  outline-color: #7d9d9c;
+  outline: 1px;
 }
