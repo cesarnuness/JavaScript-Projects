@@ -87,6 +87,7 @@ const createUsernames = function (accs) {
       .split(' ')
       .map(word => word.charAt(0))
       .join('');
+    console.log(acc.username);
   });
 };
 createUsernames(accounts);
