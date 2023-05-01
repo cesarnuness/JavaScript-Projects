@@ -10,6 +10,15 @@
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3"
-  }
+    "parcel": "^2.8.3",
+    "parcel-bundler": "^1.12.5"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "cesarnuness"
+  },
+  "keywords": [
+    "javascript"
+  ]
 }
