@@ -20,5 +20,9 @@
   },
   "keywords": [
     "javascript"
-  ]
+  ],
+  "dependencies": {
+    "core-js": "^3.30.1",
+    "regenerator-runtime": "^0.13.11"
+  }
 }
