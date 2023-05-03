@@ -12,4 +12,10 @@ const timeout = function (s) {
 
 ///////////////////////////////////////
 
-
+const showRecipe = async function () {
+  const res = await fetch(
+    'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza&key=<insert your key>'
+  );
+  const data = await res.json();
+  console.log(res, data);
+};
