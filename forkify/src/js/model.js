@@ -9,6 +9,7 @@ export const state = {
     currentPage: 1,
     resultsPerPage: RES_PER_PAGE,
   },
+  bookmarks: [],
 };
 
 export const loadRecipe = async function (id) {
@@ -26,7 +27,6 @@ export const loadRecipe = async function (id) {
       ingredients: recipe.ingredients,
     };
     state.recipe = recipe;
-    console.log(state.recipe);
   } catch (err) {
     // Temp error handling
     console.error(`${err} 💥💥💥`);
@@ -48,6 +48,7 @@ export const loadSearchResults = async function (query) {
         ...(rec.key && { key: rec.key }),
       };
     });
+    state.search.currentPage = 1;
   } catch (err) {
     console.error(`${err} 💥💥💥`);
     throw err;
@@ -61,4 +62,18 @@ export const getSearchResultsPage = function (page = state.search.currentPage) {
     (page - 1) * state.search.resultsPerPage,
     page * state.search.resultsPerPage
   );
+};
+
+export const updateServings = function (newServings) {
+  state.recipe.ingredients.forEach(ing => {
+    ing.quantity = (ing.quantity * newServings) / state.recipe.servings;
+  });
+  state.recipe.servings = newServings;
+};
+
+export const addBookmark = function (recipe) {
+  // Add bookmark
+  state.bookmarks.push(recipe);
+  // Mark current recipe as bookmark
+  if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
 };
