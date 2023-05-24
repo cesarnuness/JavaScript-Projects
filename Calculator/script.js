@@ -42,6 +42,7 @@ const deleteLastNumber = function () {
 
 const clearAllAfter = function () {
   display.innerHTML = "";
+  topDisplay.innerHTML = "";
   calculationState.firstNumber = 0;
   calculationState.secondNumber = 0;
   calculationState.operation = null;
