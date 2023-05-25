@@ -1,27 +1,24 @@
 "use strict";
-//Initial Values
+
 const calculationState = {
   firstNumber: 0,
   secondNumber: 0,
   operation: null,
 };
 
-// basic functions used in the calculator
-const clear = function () {};
-const sum = function (a, b) {
-  return a + b;
-};
-const subtraction = function (a, b) {
-  return a - b;
-};
-const multiply = function (a, b) {
-  return a * b;
-};
-const division = function (a, b) {
-  return a / b;
+const clear = () => {
+  display.innerHTML = "";
+  topDisplay.innerHTML = "";
+  calculationState.firstNumber = 0;
+  calculationState.secondNumber = 0;
+  calculationState.operation = null;
 };
 
-//Main selectors
+const sum = (a, b) => a + b;
+const subtraction = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const division = (a, b) => a / b;
+
 const number = document.querySelectorAll(".data-number");
 const operator = document.querySelectorAll(".data-operator");
 const equal = document.querySelector(".data-equal");
@@ -30,17 +27,23 @@ const topDisplay = document.querySelector(".top-display");
 const deleteLast = document.querySelector(".delete");
 const clearAll = document.querySelector(".clear");
 
-for (let i = 0; i < number.length; i++) {
-  number[i].addEventListener("click", function () {
-    display.innerHTML += this.innerHTML;
-  });
-}
+const guardClause = () => {
+  if (display.innerHTML === "") {
+    return;
+  }
+};
 
-const deleteLastNumber = function () {
+number.forEach((element) => {
+  element.addEventListener("click", () => {
+    display.innerHTML += element.innerHTML;
+  });
+});
+
+const deleteLastNumber = () => {
   display.innerHTML = display.innerHTML.slice(0, -1);
 };
 
-const clearAllAfter = function () {
+const clearAllAfter = () => {
   display.innerHTML = "";
   topDisplay.innerHTML = "";
   calculationState.firstNumber = 0;
@@ -48,36 +51,39 @@ const clearAllAfter = function () {
   calculationState.operation = null;
 };
 
-const sumAfter = function () {
-  calculationState.firstNumber = parseInt(display.innerHTML);
-  calculationState.operation = sum;
+const performOperation = (operation, operatorText) => {
+  guardClause();
+
+  if (display.innerHTML === "" && topDisplay.innerHTML !== "") {
+    // Use the previous result from top display as the first number
+    calculationState.firstNumber = parseFloat(topDisplay.innerHTML);
+  } else {
+    calculationState.firstNumber = parseFloat(display.innerHTML);
+  }
+
+  calculationState.operation = operation;
   display.innerHTML = "";
-  topDisplay.innerHTML = `${calculationState.firstNumber} +`;
+  topDisplay.innerHTML = `${calculationState.firstNumber} ${operatorText}`;
 };
 
-const subtractionAfter = function () {
-  calculationState.firstNumber = parseInt(display.innerHTML);
-  calculationState.operation = subtraction;
-  display.innerHTML = "";
-  topDisplay.innerHTML = `${calculationState.firstNumber} -`;
+const sumAfter = () => {
+  performOperation(sum, "+");
 };
 
-const multiplyAfter = function () {
-  calculationState.firstNumber = parseInt(display.innerHTML);
-  calculationState.operation = multiply;
-  display.innerHTML = "";
-  topDisplay.innerHTML = `${calculationState.firstNumber} *`;
+const subtractionAfter = () => {
+  performOperation(subtraction, "-");
 };
 
-const divisionAfter = function () {
-  calculationState.firstNumber = parseInt(display.innerHTML);
-  calculationState.operation = division;
-  display.innerHTML = "";
-  topDisplay.innerHTML = `${calculationState.firstNumber} /`;
+const multiplyAfter = () => {
+  performOperation(multiply, "*");
 };
 
-const equalize = function () {
-  calculationState.secondNumber = parseInt(display.innerHTML);
+const divisionAfter = () => {
+  performOperation(division, "/");
+};
+
+const equalize = () => {
+  calculationState.secondNumber = parseFloat(display.innerHTML);
   display.innerHTML = calculationState.operation(
     calculationState.firstNumber,
     calculationState.secondNumber
